@@ -50,3 +50,15 @@ In the absence of any defining information, people project what they believe sho
 
 
 ## Bucketing
+
+## Resources
+- https://medium.com/@morganwalkupdev/ai-made-easy-with-utility-ai-fef94cd36161
+- https://medium.com/@morganwalkupdev/easy-ai-in-unreal-engine-c0f4ba1998cc
+- https://www.gameaipro.com/GameAIPro/GameAIPro_Chapter09_An_Introduction_to_Utility_Theory.pdf
+- https://www.tomlooman.com/unreal-engine-utility-ai-part1/
+- https://www.gdcvault.com/play/1021848/Building-a-Better-Centaur-AI
+- https://www.gdcvault.com/play/1012410/Improving-AI-Decision-Modeling-Through
+- https://www.intrinsicalgorithm.com/techs.php
+- http://totalai.org/doc-goap.html
+- https://www.youtube.com/watch?v=jyJpO0HdqCg
+- https://www.youtube.com/watch?v=xaEmJRf5K7k
