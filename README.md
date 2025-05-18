@@ -23,14 +23,16 @@ It demonstrates why two completely rational individuals might not cooperate, eve
 ### Kuleshov Effect
 The Kuleshov Effect is a film editing effect that demonstrates how the same image can evoke different emotions depending on the context in which it is presented.
 
-https://github.com/user-attachments/assets/3b3356f2-ae17-42e7-9937-19b5b1fb30d6
+<video width="320" height="240" src="https://github.com/user-attachments/assets/3b3356f2-ae17-42e7-9937-19b5b1fb30d6">
+<source src="https://github.com/user-attachments/assets/3b3356f2-ae17-42e7-9937-19b5b1fb30d6" type="video/mp4">
+</video>
 
-``The Video might not load properly when viewed outside of GitHub.``
+> [!NOTE]
+> The Video might not load properly when not viewed on the GitHub page.
 
 
 ---
 ## Utility AI
-asdasd
 
 ## Actions
 - Action
