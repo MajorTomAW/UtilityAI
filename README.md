@@ -15,10 +15,7 @@ So how can we leverage our players' innate psychology to create the illusion of 
 The Prisoner's Dilemma is a standard example of a game theory problem.  
 It demonstrates why two completely rational individuals might not cooperate, even if it appears that it is in their best interest to do so.
 
-|                   |      A<br/>Stay silent       |         A<br/>Betray          |
-|:-----------------:|:----------------------------:|:-----------------------------:|
-| B<br/>Stay silent |     Each serves 6 months     | A: Goes Free <br/>B: 10 years |
-|   B<br/>Betray    | A: 10 years<br/>B: Goes Free |     Each servers 5 years      |
+<img src="https://i.insider.com/5756c8da9105841d008c7255?width=800&format=jpeg&auto=webp" alt="Prisoner's Dilemma" width="400">
 
 ### Kuleshov Effect
 The Kuleshov Effect is a film editing effect that demonstrates how the same image can evoke different emotions depending on the context in which it is presented.
