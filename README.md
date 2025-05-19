@@ -35,15 +35,44 @@ In the absence of any defining information, people project what they believe sho
 -->
 
 ---
+# Utility Theory
+
+## Utility
+Decreasing Marginal Utility
+- Each additional unit is worth less than the one before
+- The rate of increase of the total utility decreases
+
+Increasing Marginal Utility
+- Each additional unit is worth more than the one before
+- The rate of increase of the total utility increases
 
 ## Actions
-Each action comes with a set of axis that might look like this:
+On a high level, actions are the things/tasks that an agent can do.  
+These will be scored based on current context and inputs.
+
+### Prioritization Tiers
+Actions also support the principle of priority in which each action has its own ``weight coefficient`` 
+that will be applied to the final score.  
+Allowing scores **greater** than 1.0, similar to the structure of hand-authored behavior tree priorities,
+but dynamically flexible.
+
+Example:
+<table>
+      <tr><th>Action Type</th><th>Coefficient</th></tr>
+      <tr><td>Idle Actions</td><td>x1</td></tr>
+      <tr><td>Normal Actions</td><td>x3</td></tr>
+      <tr><td>Scripted Actions</td><td>x5</td></tr>
+      <tr><td>Urgent Actions<br/>(Grenade!!)</td><td>x10</td></tr>
+    </table>
+<img alt="image" src="Resources/img/Utility%20Theory_Prioritizing.png" width="400"/>
+
+Each action comes with a set of "axis" that might look like this:
 - Axis: ``Input (x)`` Parameters: ``curve-type, m, k, b, c``
   
 E.g.
 
-<table style="outline:none; width: auto">
-    <td style="padding-left:40px; padding-right:40px; outline:none" valign="top">
+<table border="0" style="border:none; outline:none;" valign="top">
+    <td style="padding-left:40px; padding-right:40px;">
       <b style="font-size: 20px">Move to Cover</b><br>
       <table>
         <tr><td>Current Threat Level</td></tr>
@@ -53,7 +82,7 @@ E.g.
         <tr><td>Quality of cover *</td></tr>
       </table>
     </td>
-  <td style="padding-left:40px; padding-right:40px; outline:none" valign="top">
+  <td style="padding-left:40px; padding-right:40px;" valign="top">
     <b style="font-size: 20px">Attack someone</b><br>
     <table>
       <tr><td>Distance from me *</td></tr>
@@ -121,9 +150,12 @@ Note, as the output scores of each axis are normalized to 0..1, the final score 
 ---
 
 ## Inputs
-Input can be gathered from various sources.  
+Raw data means little without context.  
+Thus, if data is ambiguous, we can't reason on it.
+
+Data/Input can be gathered from various sources.  
 E.g.:
-<table style="outline:none; width: auto">
+<table border="0" style="border:none; outline:none;">
     <td style="padding-left:40px; padding-right:40px; outline:none" valign="top">
       <b style="font-size: 20px">Agent (Self)</b><br>
       <table>
