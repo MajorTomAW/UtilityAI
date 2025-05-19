@@ -82,6 +82,11 @@ Example:
 
 ( * Per targeted object )
 
+### Actions per Target
+Actions with targets are scored per target.  
+For example, when considering the action ``Attack Someone``, we need to score each potential target first.  
+Each scored action is then pushed onto a list of possible actions that the agent can perform.
+(Scored Action List)
 
 ### Prioritization Tiers
 Actions also support the principle of priority in which each action has its own ``weight coefficient`` 
@@ -98,12 +103,6 @@ Example:
       <tr><td>Urgent Actions<br/>(Grenade!!)</td><td>x10</td></tr>
     </table>
 <img alt="image" src="Resources/img/Utility%20Theory_Prioritizing.png" width="400"/>
-
-### Actions per Target
-Actions with targets are scored per target.  
-For example, when considering the action ``Attack Someone``, we need to score each potential target first.  
-Each scored action is then pushed onto a list of possible actions that the agent can perform.
-(Scored Action List)
 
 ---
 
