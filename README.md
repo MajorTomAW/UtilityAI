@@ -61,7 +61,7 @@ E.g.
   </td>
 </table>
 
-[*]() Per targeted object
+( * Per targeted object )
 
 
 
