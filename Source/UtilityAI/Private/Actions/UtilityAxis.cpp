@@ -6,6 +6,14 @@
 #include "AIUtilitySystem.h"
 
 
+FUtilityAxisCurveDefinition::FUtilityAxisCurveDefinition()
+{
+	Slope.DefaultValue = 1.f;
+	Exponent.DefaultValue = 1.f;
+	XIntercept.DefaultValue = 0.f;
+	YIntercept.DefaultValue = 0.f;
+}
+
 FUtilityAxis::FUtilityAxis()
 {
 	CurveType = UAIUtilitySystem::GetCurveTypeNames().IsValidIndex(0) ?

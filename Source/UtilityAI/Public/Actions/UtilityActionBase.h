@@ -11,6 +11,7 @@
 #define MY_API UTILITYAI_API
 
 class UAIUtilityManager;
+
 /** Defines a singular action that can be scored and executed by an agent. */
 UCLASS(ClassGroup=AI, Abstract, Config=Engine, MinimalAPI)
 class UUtilityActionBase : public UObject

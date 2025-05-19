@@ -9,15 +9,19 @@
 
 #include "UtilityActionConfig.generated.h"
 
+#define MY_API UTILITYAI_API
+
+class UUtilityActionBase;
 
 /** Configuration struct for a single action. */
 USTRUCT(BlueprintType)
-struct UTILITYAI_API FUtilityActionConfig
+struct FUtilityActionConfig
 {
 	GENERATED_BODY()
 
 public:
-	FUtilityActionConfig();
+	MY_API FUtilityActionConfig();
+	MY_API virtual ~FUtilityActionConfig() = default;
 
 	/** The display name of the action. */
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Config)
@@ -51,4 +55,17 @@ public:
 
 	UPROPERTY(EditAnywhere, Category = Config, meta=(TitleProperty=DisplayName))
 	TArray<FUtilityAxis> AxisComponents;
+
+public:
+	/** Returns the action implementation. */
+	MY_API virtual TSubclassOf<UUtilityActionBase> GetActionImplementation() const;
+
+	/** Returns the name of the action. */
+	MY_API FString GetActionName() const;
+
+protected:
+	/** Name of the action. */
+	mutable FString CachedActionName;
 };
+
+#undef MY_API
