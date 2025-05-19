@@ -5,25 +5,23 @@
 #include "CoreMinimal.h"
 #include "BrainComponent.h"
 
-#include "UtilityComponent.generated.h"
-
-#define MY_API UTILITYAI_API
+#include "AIUtilityComponent.generated.h"
 
 class UAIPerceptionComponent;
 class UBlackboardComponent;
 class UBrainComponent;
 class AAIController;
 
-/**
- * Base class for all UtilityComponents which are used to control and manage decision-making of an agent.
- */
+#define MY_API UTILITYAI_API
+
+/** Base class for all UtilityComponents which are used to control and manage decision-making of an agent. */
 UCLASS(ClassGroup=AI, meta=(BlueprintSpawnableComponent), HideCategories=(Activation,Collision), Config=Game, MinimalAPI)
-class UUtilityComponent : public UBrainComponent
+class UAIUtilityComponent : public UBrainComponent
 {
 	GENERATED_BODY()
 
 public:
-	MY_API UUtilityComponent(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get());
+	MY_API UAIUtilityComponent(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get());
 
 	//~ Begin UBrainComponent Interface
 	MY_API virtual void StartLogic() override;
@@ -73,13 +71,13 @@ protected:
 };
 #undef MY_API
 
-inline UAIPerceptionComponent* UUtilityComponent::GetPerceptionComponent()
+
+inline UAIPerceptionComponent* UAIUtilityComponent::GetPerceptionComponent()
 {
 	return PerceptionComp;
 }
 
-inline const UAIPerceptionComponent* UUtilityComponent::GetPerceptionComponent() const
+inline const UAIPerceptionComponent* UAIUtilityComponent::GetPerceptionComponent() const
 {
 	return PerceptionComp;
 }
- 

@@ -1,9 +1,9 @@
-﻿{
+{
 	"FileVersion": 3,
 	"Version": 1,
 	"VersionName": "0.1",
 	"FriendlyName": "Utility AI",
-	"Description": "",
+	"Description": "Unreal Engine Plugin implementing a basic concept of Utility Theory",
 	"Category": "AI",
 	"CreatedBy": "MajorT",
 	"CreatedByURL": "",
@@ -19,5 +19,6 @@
 			"Type": "Runtime",
 			"LoadingPhase": "Default"
 		}
-	]
+	],
+	"SupportURL": ""
 }

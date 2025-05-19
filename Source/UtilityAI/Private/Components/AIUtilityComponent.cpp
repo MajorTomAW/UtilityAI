@@ -1,38 +1,36 @@
 // Author: Tom Werner (MajorT), 2025
 
 
-#include "UtilityComponent.h"
+#include "Components/AIUtilityComponent.h"
 
 #include "UtilityAILogging.h"
 #include "Perception/AIPerceptionComponent.h"
 
+#include UE_INLINE_GENERATED_CPP_BY_NAME(AIUtilityComponent)
 
-#include UE_INLINE_GENERATED_CPP_BY_NAME(UtilityComponent)
-
-UUtilityComponent::UUtilityComponent(const FObjectInitializer& ObjectInitializer)
+UAIUtilityComponent::UAIUtilityComponent(const FObjectInitializer& ObjectInitializer)
 	: Super(ObjectInitializer)
 {
 	bTickedOnce = false;
-
 	bWantsInitializeComponent = true;
 }
 
-void UUtilityComponent::StartLogic()
+void UAIUtilityComponent::StartLogic()
 {
 	Super::StartLogic();
 }
 
-void UUtilityComponent::StopLogic(const FString& Reason)
+void UAIUtilityComponent::StopLogic(const FString& Reason)
 {
 	Super::StopLogic(Reason);
 }
 
-void UUtilityComponent::RestartLogic()
+void UAIUtilityComponent::RestartLogic()
 {
 	Super::RestartLogic();
 }
 
-void UUtilityComponent::InitializeComponent()
+void UAIUtilityComponent::InitializeComponent()
 {
 	Super::InitializeComponent();
 
@@ -43,12 +41,12 @@ void UUtilityComponent::InitializeComponent()
 	}
 }
 
-void UUtilityComponent::UninitializeComponent()
+void UAIUtilityComponent::UninitializeComponent()
 {
 	Super::UninitializeComponent();
 }
 
-void UUtilityComponent::RegisterComponentTickFunctions(bool bRegister)
+void UAIUtilityComponent::RegisterComponentTickFunctions(bool bRegister)
 {
 	if (bRegister)
 	{
@@ -58,7 +56,7 @@ void UUtilityComponent::RegisterComponentTickFunctions(bool bRegister)
 	Super::RegisterComponentTickFunctions(bRegister);
 }
 
-void UUtilityComponent::SetComponentTickEnabled(bool bEnabled)
+void UAIUtilityComponent::SetComponentTickEnabled(bool bEnabled)
 {
 	const bool bWasEnabled = IsComponentTickEnabled();
 	Super::SetComponentTickEnabled(bEnabled);
@@ -71,7 +69,7 @@ void UUtilityComponent::SetComponentTickEnabled(bool bEnabled)
 	}
 }
 
-void UUtilityComponent::TickComponent(
+void UAIUtilityComponent::TickComponent(
 	float DeltaTime,
 	ELevelTick TickType,
 	FActorComponentTickFunction* ThisTickFunction)
@@ -124,7 +122,7 @@ void UUtilityComponent::TickComponent(
 	check(IsValid(this));
 }
 
-void UUtilityComponent::ScheduleNextTick(float NextDesiredDeltaTime)
+void UAIUtilityComponent::ScheduleNextTick(float NextDesiredDeltaTime)
 {
 	NextTickDeltaTime = NextDesiredDeltaTime;
 
@@ -148,7 +146,7 @@ void UUtilityComponent::ScheduleNextTick(float NextDesiredDeltaTime)
 	LastRequestedDeltaTimeGameTime = IsValid(World) ? World->GetTimeSeconds() : 0.f;
 }
 
-void UUtilityComponent::CachePerceptionComponent(UAIPerceptionComponent* InPerceptionComp)
+void UAIUtilityComponent::CachePerceptionComponent(UAIPerceptionComponent* InPerceptionComp)
 {
 	if (IsValid(InPerceptionComp))
 	{

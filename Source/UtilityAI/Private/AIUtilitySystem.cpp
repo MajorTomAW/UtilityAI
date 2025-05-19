@@ -3,11 +3,37 @@
 
 #include "AIUtilitySystem.h"
 
+#include "AIUtilityManager.h"
+#include "UtilityAILogging.h"
 
-/*
 UAIUtilitySystem::UAIUtilitySystem(const FObjectInitializer& ObjectInitializer)
 	: Super(ObjectInitializer)
 {
+}
+
+void UAIUtilitySystem::BeginDestroy()
+{
+	Super::BeginDestroy();
+}
+
+void UAIUtilitySystem::InitializeActorsForPlay(bool bTimeGotReset)
+{
+	Super::InitializeActorsForPlay(bTimeGotReset);
+}
+
+void UAIUtilitySystem::WorldOriginLocationChanged(FIntVector OldOriginLocation, FIntVector NewOriginLocation)
+{
+	Super::WorldOriginLocationChanged(OldOriginLocation, NewOriginLocation);
+}
+
+void UAIUtilitySystem::CleanupWorld(bool bSessionEnded, bool bCleanupResources)
+{
+	Super::CleanupWorld(bSessionEnded, bCleanupResources);
+}
+
+void UAIUtilitySystem::StartPlay()
+{
+	Super::StartPlay();
 }
 
 void UAIUtilitySystem::PostInitProperties()
@@ -18,22 +44,12 @@ void UAIUtilitySystem::PostInitProperties()
 	{
 		UWorld* WorldOuter = GetOuterWorld();
 
-		/*TSubclassOf<UAIUtilityManager> UtilityManagerClass = UtilityManagerClassName.IsValid() ? LoadClass<UAIUtilityManager>(NULL, *UtilityManagerClassName.ToString(), NULL, LOAD_None, NULL) : nullptr;
-		if (UtilityManagerClass)
+		TSubclassOf<UAIUtilityManager> AIUtilityManagerClass = AIUtilityManagerClassName.IsValid() ? LoadClass<UAIUtilityManager>(NULL, *AIUtilityManagerClassName.ToString(), NULL, LOAD_None, NULL) : UAIUtilityManager::StaticClass();
+		if (AIUtilityManagerClass)
 		{
-			UtilityManager = NewObject<UAIUtilityManager>(this, UtilityManagerClass, TEXT("AIUtilityManager"));
-		}#1#
-		//UtilityManager = NewObject<UAIUtilityManager>(this);
-		//ensure(UtilityManager != nullptr);
+			AIUtilityManager = NewObject<UAIUtilityManager>(this, AIUtilityManagerClass, TEXT("AIUtilityManager"));
+			UTILITYAI_LOG("Created AIUtilityManager instance of class %s", *GetNameSafe(AIUtilityManager));
+		}
+		ensure(AIUtilityManager != nullptr);
 	}
 }
-
-void UAIUtilitySystem::CleanupWorld(bool bSessionEnded, bool bCleanupResources)
-{
-	Super::CleanupWorld(bSessionEnded, bCleanupResources);
-
-	if (bCleanupResources)
-	{
-	}
-}
-*/

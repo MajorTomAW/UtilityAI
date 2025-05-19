@@ -16,28 +16,32 @@ class UAIUtilitySystem : public UAISystem
 	GENERATED_BODY()
 
 public:
-	/*MY_API UAIUtilitySystem(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get());
+	MY_API UAIUtilitySystem(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get());
 
 	//~ Begin UAISystem Interface
+	MY_API virtual void BeginDestroy() override;
 	MY_API virtual void PostInitProperties() override;
+
+	MY_API virtual void InitializeActorsForPlay(bool bTimeGotReset) override;
+	MY_API virtual void WorldOriginLocationChanged(FIntVector OldOriginLocation, FIntVector NewOriginLocation) override;
 	MY_API virtual void CleanupWorld(bool bSessionEnded = true, bool bCleanupResources = true) override;
+	MY_API virtual void StartPlay() override;
 	//~ End UAISystem Interface
 
-	/*
-	/** Utility manager getter. #2#
-	MY_API UAIUtilityManager* GetUtilityManager() { return UtilityManager; }
-	/** Utility manager const getter. #2#
-	MY_API const UAIUtilityManager* GetUtilityManager() const { return UtilityManager; }
+	/** AI utility manager getter */
+	FORCEINLINE class UAIUtilityManager* GetAIUtilityManager() { return AIUtilityManager; }
+	/** AI utility manager const getter */
+	FORCEINLINE const class UAIUtilityManager* GetAIUtilityManager() const { return AIUtilityManager; }
 
 protected:
-	/** Class that will be used to spawn the utility system, can be game-specific #2#
-	UPROPERTY(GlobalConfig, EditAnywhere, Category = "AISystem", meta=(MetaClass="/Script/UtilityAI.AIUtilityManager", DisplayName="Utility System Class"))
-	FSoftClassPath UtilityManagerClassName;
+	/** Class that will be used to spawn the AI utility manager, can be game-specific */
+	UPROPERTY(GlobalConfig, EditAnywhere, Category="AISystem", meta=(MetaClass="/Script/UtilityAI.AIUtilityManager", DisplayName="AIUtilityManager Class"))
+	FSoftClassPath AIUtilityManagerClassName;
 
 protected:
-	/** AI Utility manager used by game. #2#
+	/** AI utility manager instance */
 	UPROPERTY(Transient)
-	TObjectPtr<UAIUtilityManager> UtilityManager;#1#*/
+	TObjectPtr<class UAIUtilityManager> AIUtilityManager;
 };
 
 

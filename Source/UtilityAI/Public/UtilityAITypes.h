@@ -2,10 +2,9 @@
 
 #pragma once
 
-#include "CoreMinimal.h"
 #include "AITypes.h"
 
-class UUtilityComponent;
+class UAIUtilityComponent;
 
 #define MY_API UTILITYAI_API
 
@@ -22,9 +21,9 @@ struct FAIUtilityListener
 {
 public:
 	MY_API FAIUtilityListener();
-	MY_API FAIUtilityListener(UUtilityComponent& InListener);
+	MY_API FAIUtilityListener(UAIUtilityComponent& InListener);
 	
-	TWeakObjectPtr<UUtilityComponent> Listener;
+	TWeakObjectPtr<UAIUtilityComponent> Listener;
 	FVector CachedLocation;
 	FVector CachedDirection;
 

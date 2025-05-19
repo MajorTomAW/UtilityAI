@@ -2,6 +2,8 @@
 
 #include "UtilityAIModule.h"
 
+#include "AIUtilitySystem.h"
+#include "ISettingsModule.h"
 #include "UtilityAILogging.h"
 
 #define LOCTEXT_NAMESPACE "FUtilityAIModule"
@@ -17,16 +19,21 @@ public:
 	//~ Begin IAISystemModule
 	virtual UAISystemBase* CreateAISystemInstance(UWorld* World) override;
 	//~ End IAISystemModule
+
+protected:
+	void OnPostEngineInit();
 };
 IMPLEMENT_MODULE(FUtilityAIModule, UtilityAI)
 
 
 void FUtilityAIModule::StartupModule()
 {
+	FCoreDelegates::OnPostEngineInit.AddRaw(this, &FUtilityAIModule::OnPostEngineInit);
 }
 
 void FUtilityAIModule::ShutdownModule()
 {
+	FCoreDelegates::OnPostEngineInit.RemoveAll(this);
 }
 
 UAISystemBase* FUtilityAIModule::CreateAISystemInstance(UWorld* World)
@@ -58,6 +65,24 @@ UAISystemBase* FUtilityAIModule::CreateAISystemInstance(UWorld* World)
 	}
 
 	return AISystemInstance;
+}
+
+void FUtilityAIModule::OnPostEngineInit()
+{
+	ISettingsModule* SettingsModule = FModuleManager::GetModulePtr<ISettingsModule>("Settings");
+	if (!SettingsModule)
+	{
+		return;
+	}
+	
+	// Unregister existing AI Settings
+	SettingsModule->UnregisterSettings("Project", "Engine", "AISystem");
+
+	// And register our own once instead
+	SettingsModule->RegisterSettings("Project", "Engine", "AISystem",
+		LOCTEXT("AISystemSettingsName", "AI System"),
+		LOCTEXT("AISystemSettingsDescription", "Settings for the (Utility) AI System."),
+		GetMutableDefault<UAIUtilitySystem>());
 }
 
 #undef LOCTEXT_NAMESPACE

@@ -1,9 +1,10 @@
 // Author: Tom Werner (MajorT), 2025
 
 
-#include "AIUtilityTypes.h"
+#include "UtilityAITypes.h"
 
-#include "UtilityComponent.h"
+
+#include "Components/AIUtilityComponent.h"
 
 FAIUtilityListener::FAIUtilityListener()
 	: CachedLocation(ForceInit)
@@ -12,7 +13,7 @@ FAIUtilityListener::FAIUtilityListener()
 {
 }
 
-FAIUtilityListener::FAIUtilityListener(UUtilityComponent& InListener)
+FAIUtilityListener::FAIUtilityListener(UAIUtilityComponent& InListener)
 	: Listener(&InListener)
 	, CachedLocation(ForceInit)
 	, CachedDirection(ForceInit)
