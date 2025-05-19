@@ -6,9 +6,10 @@
 	"Description": "Unreal Engine Plugin implementing a basic concept of Utility Theory",
 	"Category": "AI",
 	"CreatedBy": "MajorT",
-	"CreatedByURL": "",
-	"DocsURL": "",
+	"CreatedByURL": "https://github.com/MajorTomAW/",
+	"DocsURL": "https://github.com/MajorTomAW/UtilityAI",
 	"MarketplaceURL": "",
+	"SupportURL": "",
 	"CanContainContent": false,
 	"IsBetaVersion": false,
 	"IsExperimentalVersion": true,
@@ -18,7 +19,11 @@
 			"Name": "UtilityAI",
 			"Type": "Runtime",
 			"LoadingPhase": "Default"
+		},
+		{
+			"Name": "UtilityAIEditor",
+			"Type": "Editor",
+			"LoadingPhase": "Default"
 		}
-	],
-	"SupportURL": ""
+	]
 }
