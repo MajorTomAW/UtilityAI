@@ -17,7 +17,8 @@ So how can we leverage our players' innate psychology to create the illusion of 
 ---
 
 ## Player Psychology
-
+In the following we can see an example
+of how a player might make use of utility by weighing the pros and cons of a decision. 
 ### Prisoner's Dilemma
 The Prisoner's Dilemma is a standard example of a game theory problem.  
 It demonstrates why two completely rational individuals might not cooperate, even if it appears that it is in their best interest to do so.
