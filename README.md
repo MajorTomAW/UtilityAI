@@ -69,8 +69,7 @@ Example:
 Each action comes with a set of "axis" that might look like this:
 - Axis: ``Input (x)`` Parameters: ``curve-type, m, k, b, c``
   
-E.g.
-
+Example:
 <table border="0" style="border:none; outline:none;" valign="top">
     <td style="padding-left:40px; padding-right:40px;">
       <b style="font-size: 20px">Move to Cover</b><br>
@@ -125,7 +124,7 @@ Defining a response curve
   - c _x-intercept_
 
 Thus, a curve being described in ``(Type, m, k, b, c)`` format.  
-E.g.:
+Example:
 - ``(Linear, 0.5, 1.0, 0.25, 0.0)``  
 <img alt="linear curve" src="Resources/img/Utility%20Theory_%20Linear%20Curve.png" width="400"/>
 
@@ -154,7 +153,7 @@ Raw data means little without context.
 Thus, if data is ambiguous, we can't reason on it.
 
 Data/Input can be gathered from various sources.  
-E.g.:
+Example:
 <table border="0" style="border:none; outline:none;">
     <td style="padding-left:40px; padding-right:40px; outline:none" valign="top">
       <b style="font-size: 20px">Agent (Self)</b><br>
@@ -238,6 +237,19 @@ From that Potential Action List we will select one action using:
 - Highest Score
 - Weighted random selection
 - Etc.
+
+---
+
+## Summary
+- Each AI agent has a set of actions it can perform
+- Actions can have 1-n axis
+- Data gets ``normalized`` to 0..1 before being passed into the axis as inputs
+- Inputs pass through ``response curves`` (parameters)
+- Yields ``normalized`` axis output value
+- All axis values are combined through ``multiplication``
+- Yields ``normalized action score``
+- Scored action pushed onto the ``potential action list``
+- Select the ``best action`` from the list
 
 ## Metrics
 - Desire ??
