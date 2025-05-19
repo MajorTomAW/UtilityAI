@@ -140,7 +140,9 @@ A response curve gets evaluated with the following process:
 - Return ``y``
 
 After each axis is evaluated, the results will be multiplied together to get the final score for the action.  
-- ``action-score`` = ``axis1 * axis2 * axis3 * ...``  
+- ``action-score`` = ``axis1 * axis2 * axis3 * ...`` * `coefficient` 
+
+
   <img alt="image" src="Resources/img/Utility%20Theory_Action%20Hierarchy.png" width="600"/>
 
 
