@@ -2,17 +2,19 @@
 Unreal Engine Plugin [...]
 
 > [!NOTE]
-> Some videos might not load properly when not viewed on the GitHub page.
-
-## Artificial Psychology
+> Some videos/images might not load properly when not viewed on the GitHub page.
 
 ---
+
+## Artificial Psychology
 
 We start by defining the difference between agents and players.
 - Agents don't really have psychology
 - But players do have psychology
 
 So how can we leverage our players' innate psychology to create the illusion of it in our agents?
+
+---
 
 ## Player Psychology
 
