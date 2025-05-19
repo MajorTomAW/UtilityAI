@@ -1,5 +1,5 @@
 # Utility AI
-Unreal Engine Plugin [...]
+Unreal Engine Plugin implementing a basic concept of Utility Theory
 
 > [!NOTE]
 > Some videos/images might not load properly when not viewed on the GitHub page.
