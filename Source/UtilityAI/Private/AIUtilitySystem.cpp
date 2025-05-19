@@ -9,6 +9,24 @@
 UAIUtilitySystem::UAIUtilitySystem(const FObjectInitializer& ObjectInitializer)
 	: Super(ObjectInitializer)
 {
+	PriorityGroups.Add("Idle", 1);
+	PriorityGroups.Add("Normal", 3);
+	PriorityGroups.Add("Scripted", 5);
+	PriorityGroups.Add("Urgent", 10);
+}
+
+TArray<FName> UAIUtilitySystem::GetPriorityGroupNames()
+{
+	TArray<FName> Names;
+	GetDefault<UAIUtilitySystem>()->PriorityGroups.GenerateKeyArray(Names);
+	return Names;
+}
+
+TArray<FName> UAIUtilitySystem::GetCurveTypeNames()
+{
+	TArray<FName> Names;
+	GetDefault<UAIUtilitySystem>()->ResponseCurves.GenerateKeyArray(Names);
+	return Names;
 }
 
 void UAIUtilitySystem::BeginDestroy()

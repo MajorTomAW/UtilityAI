@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "AISubsystem.h"
+#include "UtilityAITypes.h"
 
 #include "AIUtilityManager.generated.h"
 
@@ -17,5 +18,19 @@ class UAIUtilityManager : public UAISubsystem
 
 public:
 	MY_API UAIUtilityManager(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get());
+
+	static MY_API UAIUtilityManager* GetCurrent(UObject* WorldContextObject);
+	static MY_API UAIUtilityManager* GetCurrent(UWorld& World);
+	
+protected:
+	/** List of all registered listeners. */
+	UtilityAI::FListenerMap ListenerContainer;
+	
+	/** Timestamp of the next utility aging. */
+	double NextUtilityAgingTick;
+private:
+	/** Cached world's timestamp. */
+	double CurrentTime;
 };
+
 #undef MY_API
