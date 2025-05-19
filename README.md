@@ -37,6 +37,11 @@ In the absence of any defining information, people project what they believe sho
 ---
 # Utility Theory
 
+> "In economics, utility is a measure of the relative satisfaction from, or desirability of, consumption of various goods and services."  
+> Given this measure, one may speak meaningfully of increasing or decreasing utility, and thereby explain economic behavior in terms of attempts to increase one's utility.
+> 
+> -[Wikipedia](https://en.wikipedia.org/wiki/Utility)
+
 ## Utility
 Decreasing Marginal Utility
 - Each additional unit is worth less than the one before
