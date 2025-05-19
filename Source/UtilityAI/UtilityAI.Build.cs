@@ -4,50 +4,44 @@ using UnrealBuildTool;
 
 public class UtilityAI : ModuleRules
 {
-	public UtilityAI(ReadOnlyTargetRules Target) : base(Target)
+	public UtilityAI(ReadOnlyTargetRules target) : base(target)
 	{
-		PCHUsage = ModuleRules.PCHUsageMode.UseExplicitOrSharedPCHs;
+		PCHUsage = PCHUsageMode.UseExplicitOrSharedPCHs;
 		
-		PublicIncludePaths.AddRange(
-			new string[] {
-				// ... add public include paths required here ...
-			}
-			);
-				
-		
-		PrivateIncludePaths.AddRange(
-			new string[] {
-				// ... add other private include paths required here ...
-			}
-			);
+		PublicDependencyModuleNames.AddRange(new []
+		{ 
+			"Core",
+			"AIModule",
+			"GameplayTags",
+			"NavigationSystem",
+		});
 			
 		
-		PublicDependencyModuleNames.AddRange(
-			new string[]
-			{
-				"Core",
-				// ... add other public dependencies that you statically link with here ...
-			}
-			);
-			
+		PrivateDependencyModuleNames.AddRange(new []
+		{ 
+			"CoreUObject", 
+			"Engine", 
+		});
 		
-		PrivateDependencyModuleNames.AddRange(
-			new string[]
-			{
-				"CoreUObject",
-				"Engine",
-				"Slate",
-				"SlateCore",
-				// ... add private dependencies that you statically link with here ...	
-			}
-			);
+		// Include internal dependencies
+		IncludeEditorOnlyDependencies(target, this);
 		
-		
-		DynamicallyLoadedModuleNames.AddRange(
-			new string[]
-			{
-				// ... add any modules that your module loads dynamically here ...
-			}
-			);
+		// Expose our module to other relevant modules
+		SetupGameplayDebuggerSupport(target);
+	}
+	
+	internal static void IncludeEditorOnlyDependencies(ReadOnlyTargetRules target, ModuleRules module)
+	{
+		if (!target.bBuildEditor)
+		{
+			return;
+		}
+        
+		module.PrivateDependencyModuleNames.AddRange([
+			"AssetRegistry",
+			"EditorFramework",
+			"UnrealEd",
+			"Slate",
+		]);
 	}
 }

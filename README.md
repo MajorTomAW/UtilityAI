@@ -33,7 +33,6 @@ In the absence of any defining information, people project what they believe sho
 
 
 ---
-## Utility AI
 
 ## Actions
 - Action
