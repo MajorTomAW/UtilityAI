@@ -5,6 +5,7 @@
 
 #include "AIUtilityManager.h"
 #include "UtilityAILogging.h"
+#include "DataProviders/UtilityResponseCurveCollection.h"
 
 UAIUtilitySystem::UAIUtilitySystem(const FObjectInitializer& ObjectInitializer)
 	: Super(ObjectInitializer)
@@ -25,7 +26,12 @@ TArray<FName> UAIUtilitySystem::GetPriorityGroupNames()
 TArray<FName> UAIUtilitySystem::GetCurveTypeNames()
 {
 	TArray<FName> Names;
-	GetDefault<UAIUtilitySystem>()->ResponseCurves.GenerateKeyArray(Names);
+
+	if (const UUtilityResponseCurveCollection* Collection =
+		Cast<UUtilityResponseCurveCollection>(GetDefault<UAIUtilitySystem>()->ResponseCurveCollectionPath.TryLoad()))
+	{
+		Collection->ResponseCurves.GenerateKeyArray(Names);
+	}
 	return Names;
 }
 

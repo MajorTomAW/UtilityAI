@@ -3,12 +3,12 @@
 #pragma once
 
 #include "CoreMinimal.h"
+
 #include "AISystem.h"
-#include "Actions/UtilityResponseCurveConfig.h"
-#include "StructUtils/InstancedStruct.h"
 
 #include "AIUtilitySystem.generated.h"
 
+class UUtilityResponseCurveCollection;
 class UAIUtilityManager;
 
 #define MY_API UTILITYAI_API
@@ -65,9 +65,9 @@ protected:
 	UPROPERTY(Config, EditAnywhere, Category="Utility")
 	TMap<FName, uint32> PriorityGroups;
 
-	/** List of predefined equations for utility response scoring. */
-	UPROPERTY(Config, EditAnywhere, Category="Utility", NoClear)
-	TMap<FName, TInstancedStruct<FUtilityResponseCurveConfig>> ResponseCurves;
+	/** Collection of predefined equations for utility response scoring. */
+	UPROPERTY(Config, EditAnywhere, Category="Utility", meta=(MetaClass="/Script/UtilityAI.UtilityResponseCurveCollection", DisplayName="Response Curve Collection"))
+	FSoftObjectPath ResponseCurveCollectionPath;
 
 protected:
 	/** AI utility manager instance */

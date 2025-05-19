@@ -26,7 +26,7 @@ public:
 	bool bUseCustomBookendMin;
 	
 	/** Minimum value of interest. Will be used for normalizing input value. */
-	UPROPERTY(EditAnywhere, meta=(ExcludeBaseStruct, EditCondition=bUseCustomBookendMin), NoClear, Category=Axis)
+	UPROPERTY(EditAnywhere, meta=(ExcludeBaseStruct, EditCondition=bUseCustomBookendMin), Category=Axis)
 	TInstancedStruct<FAIDataProviderTypedValue> BookendMin;
 
 
@@ -35,7 +35,7 @@ public:
 	bool bUseCustomBookendMax;
 	
 	/** Maximum value of interest. Will be used for normalizing input value. */
-	UPROPERTY(EditAnywhere, meta=(ExcludeBaseStruct, EditCondition=bUseCustomBookendMax), NoClear, Category=Axis)
+	UPROPERTY(EditAnywhere, meta=(ExcludeBaseStruct, EditCondition=bUseCustomBookendMax), Category=Axis)
 	TInstancedStruct<FAIDataProviderTypedValue> BookendMax;
 
 	/** Curve type to choose for the axis scoring. */

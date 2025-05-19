@@ -8,20 +8,31 @@
 #include "UtilityResponseCurveConfig.generated.h"
 
 USTRUCT(BlueprintType)
-struct FUtilityResponseCurveConfig
+struct FAIDataProviderUtilityCurve : public FAIDataProviderTypedValue
 {
 	GENERATED_BODY()
 
 public:
-	FUtilityResponseCurveConfig();
+	FAIDataProviderUtilityCurve();
+};
 
+UCLASS(EditInlineNew, Abstract)
+class UAIDataProvider_ResponseCurve : public UAIDataProvider
+{
+	GENERATED_BODY()
+
+public:
+	UAIDataProvider_ResponseCurve();
+
+	//~ Begin UAIDataProvider Interface
+	virtual void BindData(const UObject& Owner, int32 RequestId) override;
+	virtual FString ToString(FName PropName) const override;
+	//~ End UAIDataProvider Interface
+
+protected:
 	/** Slope "m" of the curve. */
 	UPROPERTY(EditDefaultsOnly, Category=Default)
 	FAIDataProviderFloatValue Slope;
-
-	/** Exponent "k". */
-	UPROPERTY(EditDefaultsOnly, Category=Default)
-	FAIDataProviderFloatValue Exponent;
 
 	/** Y-Intercept / Y-Shift "b" of the curve. */
 	UPROPERTY(EditDefaultsOnly, Category=Default, DisplayName="Y-Intercept")
@@ -30,7 +41,4 @@ public:
 	/** X-Intercept / X-Shift "c" of the curve. */
 	UPROPERTY(EditDefaultsOnly, Category=Default, DisplayName="X-Intercept")
 	FAIDataProviderFloatValue XIntercept;
-
-private:
-	mutable UFunction* CachedCallFunction;
 };
