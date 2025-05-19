@@ -55,22 +55,6 @@ Increasing Marginal Utility
 On a high level, actions are the things/tasks that an agent can do.  
 These will be scored based on current context and inputs.
 
-### Prioritization Tiers
-Actions also support the principle of priority in which each action has its own ``weight coefficient`` 
-that will be applied to the final score.  
-Allowing scores **greater** than 1.0, similar to the structure of hand-authored behavior tree priorities,
-but dynamically flexible.
-
-Example:
-<table>
-      <tr><th>Action Type</th><th>Coefficient</th></tr>
-      <tr><td>Idle Actions</td><td>x1</td></tr>
-      <tr><td>Normal Actions</td><td>x3</td></tr>
-      <tr><td>Scripted Actions</td><td>x5</td></tr>
-      <tr><td>Urgent Actions<br/>(Grenade!!)</td><td>x10</td></tr>
-    </table>
-<img alt="image" src="Resources/img/Utility%20Theory_Prioritizing.png" width="400"/>
-
 Each action comes with a set of "axis" that might look like this:
 - Axis: ``Input (x)`` Parameters: ``curve-type, m, k, b, c``
   
@@ -99,6 +83,21 @@ Example:
 ( * Per targeted object )
 
 
+### Prioritization Tiers
+Actions also support the principle of priority in which each action has its own ``weight coefficient`` 
+that will be applied to the final score.  
+Allowing scores **greater** than 1.0, similar to the structure of hand-authored behavior tree priorities,
+but dynamically flexible.
+
+Example:
+<table>
+      <tr><th>Action Type</th><th>Coefficient</th></tr>
+      <tr><td>Idle Actions</td><td>x1</td></tr>
+      <tr><td>Normal Actions</td><td>x3</td></tr>
+      <tr><td>Scripted Actions</td><td>x5</td></tr>
+      <tr><td>Urgent Actions<br/>(Grenade!!)</td><td>x10</td></tr>
+    </table>
+<img alt="image" src="Resources/img/Utility%20Theory_Prioritizing.png" width="400"/>
 
 ### Actions per Target
 Actions with targets are scored per target.  
