@@ -3,19 +3,37 @@
 
 #include "AIUtilitySystem.h"
 
-#include UE_INLINE_GENERATED_CPP_BY_NAME(AIUtilitySystem)
 
+/*
 UAIUtilitySystem::UAIUtilitySystem(const FObjectInitializer& ObjectInitializer)
 	: Super(ObjectInitializer)
 {
 }
 
-void UAIUtilitySystem::Tick(float DeltaTime)
+void UAIUtilitySystem::PostInitProperties()
 {
-	Super::Tick(DeltaTime);
+	Super::PostInitProperties();
+
+	if (HasAnyFlags(RF_ClassDefaultObject) == false)
+	{
+		UWorld* WorldOuter = GetOuterWorld();
+
+		/*TSubclassOf<UAIUtilityManager> UtilityManagerClass = UtilityManagerClassName.IsValid() ? LoadClass<UAIUtilityManager>(NULL, *UtilityManagerClassName.ToString(), NULL, LOAD_None, NULL) : nullptr;
+		if (UtilityManagerClass)
+		{
+			UtilityManager = NewObject<UAIUtilityManager>(this, UtilityManagerClass, TEXT("AIUtilityManager"));
+		}#1#
+		//UtilityManager = NewObject<UAIUtilityManager>(this);
+		//ensure(UtilityManager != nullptr);
+	}
 }
 
-TStatId UAIUtilitySystem::GetStatId() const
+void UAIUtilitySystem::CleanupWorld(bool bSessionEnded, bool bCleanupResources)
 {
-	RETURN_QUICK_DECLARE_CYCLE_STAT(UAIUtilitySystem, STATGROUP_Tickables);
+	Super::CleanupWorld(bSessionEnded, bCleanupResources);
+
+	if (bCleanupResources)
+	{
+	}
 }
+*/
