@@ -9,8 +9,8 @@ class UAIUtilityComponent;
 #define MY_API UTILITYAI_API
 
 /** Utility counter struct. */
-struct FUtilityAICounter : FAIBasicCounter<uint8> {};
-typedef FAINamedID<FUtilityAICounter> FAIUtilityId;
+struct FUtilityAIActionCounter : FAIBasicCounter<uint8> {};
+typedef FAINamedID<FUtilityAIActionCounter> FAIUtilityActionId;
 
 /** Listener id counter struct. */
 struct FUtilityAIListenerCounter : FAIBasicCounter<uint32> {};
@@ -32,7 +32,7 @@ private:
 	FAIUtilityListenerId ListenerId;
 };
 
-namespace UtilityAI
+namespace AIUtility
 {
 	typedef TMap<FAIUtilityListenerId, FAIUtilityListener> FListenerMap;
 }

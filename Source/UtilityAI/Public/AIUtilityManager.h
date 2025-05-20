@@ -21,10 +21,13 @@ public:
 
 	static MY_API UAIUtilityManager* GetCurrent(UObject* WorldContextObject);
 	static MY_API UAIUtilityManager* GetCurrent(UWorld& World);
+
+	/** Returns the listener container. */
+	FORCEINLINE AIUtility::FListenerMap& GetListeners() { return ListenerContainer; }
 	
 protected:
 	/** List of all registered listeners. */
-	UtilityAI::FListenerMap ListenerContainer;
+	AIUtility::FListenerMap ListenerContainer;
 	
 	/** Timestamp of the next utility aging. */
 	double NextUtilityAgingTick;
