@@ -31,9 +31,9 @@ protected:
 	
 	/** Timestamp of the next utility aging. */
 	double NextUtilityAgingTick;
+	
 private:
 	/** Cached world's timestamp. */
 	double CurrentTime;
 };
-
 #undef MY_API

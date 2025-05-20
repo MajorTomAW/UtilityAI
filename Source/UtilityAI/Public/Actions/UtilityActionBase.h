@@ -50,3 +50,5 @@ private:
 	float TimeUntilNextUpdate;
 };
 #undef MY_API
+
+typedef TSharedPtr<UUtilityActionBase, ESPMode::ThreadSafe> FTUtilityActionPtr;

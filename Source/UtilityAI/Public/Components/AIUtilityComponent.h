@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "BrainComponent.h"
+#include "Actions/UtilityActionConfig.h"
 
 #include "AIUtilityComponent.generated.h"
 
@@ -49,7 +50,28 @@ public:
 	/** Returns the PerceptionComponent used by the agent. */
 	MY_API const UAIPerceptionComponent* GetPerceptionComponent() const;
 
+	/** Returns the config of an action with the given type. */
+	template <typename T, typename = std::enable_if_t<std::is_base_of_v<FUtilityActionConfig, T>>>
+	const T* GetUtilityActionConfig(const FGameplayTag& ActionTag) const
+	{
+		for (auto& Instance : ActionsConfig)
+		{
+			if (const T* Config = Instance.GetPtr<T>())
+			{
+				if (!Config->GameplayTag.MatchesTagExact(ActionTag))
+				{
+					return Config;	
+				}
+			}
+		}
+
+		return nullptr;
+	}
+
 protected:
+	UPROPERTY(EditDefaultsOnly, Category = Utility)
+	TArray<TInstancedStruct<FUtilityActionConfig>> ActionsConfig;
+	
 	/** Perception component. */
 	UPROPERTY(Transient)
 	TObjectPtr<UAIPerceptionComponent> PerceptionComp;
