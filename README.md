@@ -248,6 +248,39 @@ From that Potential Action List we will select one action using:
 
 ---
 
+
+## Bucketing / Input Providers
+A keypoint that we haven't discussed yet is how the utility system gathers its data to score any actions.  
+Let us split things up into two parts:
+- **Input Providers**: The source of the data
+- **Input Buckets**: "Buckets" of data providers that can be accessed by an agent.
+
+### Input Providers
+An input provider yields a float value to the utility system.  
+This can either happen by naively accessing some property value of an object
+or by querying a more complex data structure.
+
+Example:
+
+|       Raw Input Providers       | Queried Input Providers |
+|:-------------------------------:|:-----------------------:|
+|       Blackboard<br/>Data       |           EQS           |
+|       Perception<br/>Data       |            -            |
+|   Distance/Location<br/>Data    |            -            |
+
+### Input Buckets
+Each agent has its own set of an input bucket that it can make use of.  
+But also the AI utility system has its own bucket that can be used for shared input data between all agents.
+The idea is that some data doesn't need to be gathered for each agent individually,
+such as the number of enemies, or the distance between two points.
+
+Input buckets constantly update their input providers at a certain interval.  
+These updates run asynchronously to the game thread.  
+However, an agent can always access the data currently inside that input bucket.  
+(It just might be outdated)
+
+---
+
 ## Summary
 - Each AI agent has a set of actions it can perform
 - Actions can have 1-n axis
@@ -269,7 +302,6 @@ From that Potential Action List we will select one action using:
 
 [...] WIP
 
-## Bucketing
 
 # Unreal Engine Implementation
 ## AI Utility Manager
